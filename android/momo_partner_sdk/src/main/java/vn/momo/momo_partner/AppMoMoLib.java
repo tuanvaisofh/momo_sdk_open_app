@@ -148,7 +148,7 @@ public class AppMoMoLib{
             jsonData.put("action", actionType);
             jsonData.put("clientos", "Android_" + MoMoUtils.getDeviceName() + "_"+MoMoUtils.getDeviceSoftwareVersion());
 
-            if(appInstalledOrNot(activity,packageClass)) {
+            if(appInstalledOrNot(activity,packageClass) || android.os.Build.VERSION.SDK_INT >= 11) {
                 intent[0].setAction(action);
                 intent[0].putExtra("JSON_PARAM", jsonData.toString());
                 activity.startActivityForResult(intent[0], REQUEST_CODE_MOMO);
